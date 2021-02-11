@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHouse.Views.AboutPage"
+             xmlns:vm="clr-namespace:SmartHouse.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="40*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="IP Address" VerticalOptions="Center"
+               Grid.Row="1" Grid.Column="1"/>
+            <Entry Placeholder="192.168.1.*"
+               Grid.Row="1" Grid.Column="2"
+               Text="{Binding IPServer}"/>
+
+            <Label Text="Server port" VerticalOptions="Center"
+               Grid.Row="2" Grid.Column="1"/>
+            <Entry Placeholder="8080"
+               Grid.Row="2" Grid.Column="2"
+               Text="{Binding Port}"/>
+
+            <Button Text="Connect"
+                Grid.Row="3" Grid.Column="2"
+                Command="{Binding Connect}"/>
+
+            <Label Text="{Binding IsConnected, FallbackValue=Disconnected}" 
+                Grid.Row="3" Grid.Column="3"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="15"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Command:"  VerticalOptions="Center"
+                   Grid.Row="2" Grid.Column="1"/>
+            <Entry Placeholder="Enter command here"
+                   Grid.Row="2" Grid.Column="2"
+                   Text="{Binding Data}"/>
+            <Button Text="Send" FontSize="Small"
+                    Grid.Row="2" Grid.Column="3"
+                    Command="{Binding Send}"/>
+        </Grid>
+    </Grid>
+    
+    
+
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHouse.Views.ItemDetailPage"
+             Title="{Binding Title}">
+
+    <StackLayout Spacing="15" Padding="10">
+        <Label Text="Name:" FontSize="Medium" />
+        <Label Text="{Binding Name}" FontSize="Small"/>
+        <Label Text="Description:" FontSize="Medium" />
+        <Label Text="{Binding Description}" FontSize="Small"/>
+        <Label Text="IPAddress:" FontSize="Medium" />
+        <Label Text="{Binding IPAddress}" FontSize="Small"/>
+        <Label Text="Port:" FontSize="Medium" />
+        <Label Text="{Binding Port}" FontSize="Small"/>
+        <Label Text="Available:" FontSize="Medium" />
+        <Label Text="{Binding Available}" FontSize="Small"/>
+
+        <StackLayout Orientation="Vertical" Spacing="20">
+            <Button Text="Edit" Command="{Binding EditCommand}" 
+                        HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="Delete" Command="{Binding DeleteCommand}" 
+                        HorizontalOptions="FillAndExpand" BackgroundColor="OrangeRed"></Button>
+        </StackLayout>
+    </StackLayout>
+    
+</ContentPage>
